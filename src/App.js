@@ -20,6 +20,10 @@ export default class App extends React.Component {
     });
   };
 
+  handleCreateTeams = () => {
+    
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,6 +36,7 @@ export default class App extends React.Component {
         )}
 
         <Teams teamOne={this.state.teamOne} teamTwo={this.state.teamTwo} />
+        <button onClick={this.handleCreateTeams}>Create Teams</button>
       </div>
     );
   }

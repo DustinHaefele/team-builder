@@ -6,6 +6,8 @@ export default class PlayerForm extends React.Component{
     e.preventDefault();
     console.log(e.target.playerName.value, e.target.playerSkill.value)
     this.props.handleAddPlayer(e.target.playerName.value, e.target.playerSkill.value);
+    e.target.playerName.value = '';
+    e.target.playerSkill.value = 'good';
   }
 
   render ()
@@ -17,7 +19,7 @@ export default class PlayerForm extends React.Component{
         <option value='better'>Better</option>
         <option value='best'>Best</option>
       </select>
-      <button type='submit'>Make My Teams</button>
+      <button type='submit'>Add Player</button>
     </form>
   )}
 }
