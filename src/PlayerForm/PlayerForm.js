@@ -7,7 +7,7 @@ export default class PlayerForm extends React.Component{
     console.log(e.target.playerName.value, e.target.playerSkill.value)
     this.props.handleAddPlayer(e.target.playerName.value, e.target.playerSkill.value);
     e.target.playerName.value = '';
-    e.target.playerSkill.value = 'good';
+    // e.target.playerSkill.value = 1;
   }
 
   render ()

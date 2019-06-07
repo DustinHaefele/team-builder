@@ -14,7 +14,6 @@ export default class App extends React.Component {
   handleAddPlayer = (name, skill) => {
     const allPlayers = { ...this.state.allPlayers };
     allPlayers[name] = skill;
-    console.log(allPlayers);
     this.setState({
       allPlayers
     });
@@ -46,19 +45,22 @@ export default class App extends React.Component {
     let teamTwo = [];
 
     Object.keys(this.state.allPlayers).forEach(player => {
-      if (this.state.allPlayers[player] === 1) {
+      if (this.state.allPlayers[player] === '1') {
         good = [...good, player]
       }
-      else if (this.state.allPlayers[player] === 2) {
+      else if (this.state.allPlayers[player] === '2') {
         better = [...better, player];
       }
       else {
         best = [...best, player];
       }
     })
+
+      //Shuffle your Arrays to randomize teams
       good = this.shuffle(good);
       better = this.shuffle(better);
       best = this.shuffle(best);
+
       const allPlayers = [...good, ...better, ...best];
       allPlayers.forEach((play, i) => {
         if(i%2===0){

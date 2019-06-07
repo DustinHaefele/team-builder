@@ -1,0 +1,6 @@
+.row {
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  justify-content: space-around;
+}
