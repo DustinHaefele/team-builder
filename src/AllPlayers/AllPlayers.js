@@ -3,11 +3,12 @@ import './AllPlayers.css'
 
 export default function AllPlayers(props) {
   
-
+  //Add Delete Button for mistyped players
+  
   const Players = Object.keys(props.AllPlayers).map(name => <li>{name}</li>)
 
   return (
-    <ul>
+    <ul className ='allPlayers'>
       {Players}
     </ul>
   )

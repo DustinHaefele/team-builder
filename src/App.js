@@ -20,8 +20,58 @@ export default class App extends React.Component {
     });
   };
 
+  shuffle = (array) => {
+
+    let currentIndex = array.length;
+    let temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  };
+
   handleCreateTeams = () => {
-    
+    let good = [];
+    let better = [];
+    let best = [];
+    let teamOne = [];
+    let teamTwo = [];
+
+    Object.keys(this.state.allPlayers).forEach(player => {
+      if (this.state.allPlayers[player] === 1) {
+        good = [...good, player]
+      }
+      else if (this.state.allPlayers[player] === 2) {
+        better = [...better, player];
+      }
+      else {
+        best = [...best, player];
+      }
+    })
+      good = this.shuffle(good);
+      better = this.shuffle(better);
+      best = this.shuffle(best);
+      const allPlayers = [...good, ...better, ...best];
+      allPlayers.forEach((play, i) => {
+        if(i%2===0){
+          teamOne = [...teamOne, play];
+        }
+        else {
+          teamTwo= [...teamTwo, play];
+        }
+      })
+      this.setState({
+        teamOne,
+        teamTwo
+      })
   }
 
   render() {
