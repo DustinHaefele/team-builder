@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PlayerForm from "./PlayerForm/PlayerForm";
+import AllPlayers from "./AllPlayers/AllPlayers";
+import Teams from "./Teams/Teams";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    allPlayers: {},
+    teamOne: [],
+    teamTwo: []
+  };
+
+  handleAddPlayer = (name, skill) => {
+    const allPlayers = { ...this.state.allPlayers };
+    allPlayers[name] = skill;
+    console.log(allPlayers);
+    this.setState({
+      allPlayers
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <PlayerForm
+          allPlayers={this.state.allPlayers}
+          handleAddPlayer={this.handleAddPlayer}
+        />
+        {this.state.allPlayers && (
+          <AllPlayers AllPlayers={this.state.allPlayers} />
+        )}
+
+        <Teams teamOne={this.state.teamOne} teamTwo={this.state.teamTwo} />
+      </div>
+    );
+  }
 }
-
-export default App;
