@@ -14,9 +14,11 @@ export default class PlayerForm extends React.Component{
     <form onSubmit={this.handleSubmit}>
       <input id ='playerName' type='text' placeholder='newPlayer'/>
       <select id='playerSkill'>
-        <option value={1}>1</option>
-        <option value={2}>2</option>
-        <option value={3}>3</option>
+        <option value={1}>1 - I Just Started</option>
+        <option value={2}>2 - I'm getting better</option>
+        <option value={3}>3 - I'm the average player</option>
+        <option value={4}>4 - I'm pretty good</option>
+        <option value={5}>5 - European Semi-pro</option>
       </select>
       <button type='submit' className ='button'>Add Player</button>
     </form>

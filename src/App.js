@@ -38,28 +38,39 @@ export default class App extends React.Component {
   
 //Add 5 levels for skill and order them high to low.
   handleCreateTeams = () => {
-    let good = [];
-    let better = [];
-    let best = [];
+    let level1 = [];
+    let level2 = [];
+    let level3 = [];
+    let level4 = [];
+    let level5 = [];
     let teamOne = [];
     let teamTwo = [];
 
     Object.keys(this.state.allPlayers).forEach(player => {
       if (this.state.allPlayers[player] === "1") {
-        good = [...good, player];
+        level1 = [...level1, player];
       } else if (this.state.allPlayers[player] === "2") {
-        better = [...better, player];
-      } else {
-        best = [...best, player];
+        level2 = [...level2, player];
+      } else if (this.state.allPlayers[player] === "3"){
+        level3 = [...level3, player];
+      }
+      else if (this.state.allPlayers[player] === "4"){
+        level4 = [...level4, player];
+      }
+      else {
+        level5 = [...level5, player];
       }
     });
 
     //Shuffle your Arrays to randomize teams
-    good = this.shuffle(good);
-    better = this.shuffle(better);
-    best = this.shuffle(best);
+    level1 = this.shuffle(level1);
+    level2 = this.shuffle(level2);
+    level3 = this.shuffle(level3);
+    level4 = this.shuffle(level4);
+    level5 = this.shuffle(level5);
 
-    const allPlayers = [...good, ...better, ...best];
+    
+    const allPlayers = [...level5, ...level4, ...level3, ...level2, ...level1];
     allPlayers.forEach((play, i) => {
       if (i % 2 === 0) {
         teamOne = [...teamOne, play];
