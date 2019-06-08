@@ -1,15 +1,14 @@
 import React from 'react';
+import './PlayerForm.css'
 
 export default class PlayerForm extends React.Component{
 
  handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.playerName.value, e.target.playerSkill.value)
     this.props.handleAddPlayer(e.target.playerName.value, e.target.playerSkill.value);
     e.target.playerName.value = '';
-    // e.target.playerSkill.value = 1;
   }
-
+//Add 5 levels for skill and order them high to low.
   render ()
   {return (
     <form onSubmit={this.handleSubmit}>
@@ -19,7 +18,7 @@ export default class PlayerForm extends React.Component{
         <option value={2}>2</option>
         <option value={3}>3</option>
       </select>
-      <button type='submit'>Add Player</button>
+      <button type='submit' className ='button'>Add Player</button>
     </form>
   )}
 }

@@ -1,22 +1,20 @@
-.CircleButton {
-  background-color: #cacaca;
-  border-radius: 50%;
-  border: 0;
-  color: black;
-  /* display: block; */
-  font-size: 12px;
-  font-weight: bold;
-  height: 60px;
-  padding: 8px;
-  text-align: center;
-  text-decoration: none;
-  width: 60px;
+.button {
+  padding: 5px 10px;
+  background-color: #FDFDFF;
+  color: #282828;
+  font-weight: 700;
+  border-radius: 10%;
+  margin: 5px 5px;
 }
 
-a.CircleButton {
-  padding: 16px 8px 8px;
+#playerName, #playerSkill{
+  background-color: #FDFDFF;
+  padding: 5px 10px 5px 1px;
+  border-radius: 10%;
+  margin: 5px 5px;
 }
 
-.CircleButton:hover {
-  cursor: pointer;
-}
+
+
+
+

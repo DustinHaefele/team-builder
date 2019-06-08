@@ -5,7 +5,7 @@ export default function AllPlayers(props) {
   
   //Add Delete Button for mistyped players
   
-  const Players = Object.keys(props.AllPlayers).map((name,i)=> <li key={i}>{name}</li>)
+  const Players = Object.keys(props.AllPlayers).map((name,i)=> <li key={i} className='player'>{name}</li>)
 
   return (
     <ul className ='allPlayers'>

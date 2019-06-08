@@ -19,11 +19,10 @@ export default class App extends React.Component {
     });
   };
 
-  shuffle = (array) => {
-
+  shuffle = array => {
     let currentIndex = array.length;
     let temporaryValue, randomIndex;
-  
+
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
       // Pick a remaining element...
@@ -36,7 +35,8 @@ export default class App extends React.Component {
     }
     return array;
   };
-
+  
+//Add 5 levels for skill and order them high to low.
   handleCreateTeams = () => {
     let good = [];
     let better = [];
@@ -45,52 +45,55 @@ export default class App extends React.Component {
     let teamTwo = [];
 
     Object.keys(this.state.allPlayers).forEach(player => {
-      if (this.state.allPlayers[player] === '1') {
-        good = [...good, player]
-      }
-      else if (this.state.allPlayers[player] === '2') {
+      if (this.state.allPlayers[player] === "1") {
+        good = [...good, player];
+      } else if (this.state.allPlayers[player] === "2") {
         better = [...better, player];
-      }
-      else {
+      } else {
         best = [...best, player];
       }
-    })
+    });
 
-      //Shuffle your Arrays to randomize teams
-      good = this.shuffle(good);
-      better = this.shuffle(better);
-      best = this.shuffle(best);
+    //Shuffle your Arrays to randomize teams
+    good = this.shuffle(good);
+    better = this.shuffle(better);
+    best = this.shuffle(best);
 
-      const allPlayers = [...good, ...better, ...best];
-      allPlayers.forEach((play, i) => {
-        if(i%2===0){
-          teamOne = [...teamOne, play];
-        }
-        else {
-          teamTwo= [...teamTwo, play];
-        }
-      })
-      this.setState({
-        teamOne,
-        teamTwo
-      })
-  }
+    const allPlayers = [...good, ...better, ...best];
+    allPlayers.forEach((play, i) => {
+      if (i % 2 === 0) {
+        teamOne = [...teamOne, play];
+      } else {
+        teamTwo = [...teamTwo, play];
+      }
+    });
+    this.setState({
+      teamOne,
+      teamTwo
+    });
+  };
 
   render() {
     return (
-
       <div className="App">
-        <h1>Create Random Teams</h1>
+        <h1 className="logo">
+          <span className="word1">EVEN</span><br/>
+          <span className="word2">TEAMS</span>
+        </h1>
         <PlayerForm
           allPlayers={this.state.allPlayers}
           handleAddPlayer={this.handleAddPlayer}
         />
+        {this.state.teamOne.length > 0 && (
+          <Teams teamOne={this.state.teamOne} teamTwo={this.state.teamTwo} />
+        )}
+        <button onClick={this.handleCreateTeams} className="button" id='create-teams'>
+          Create Teams
+        </button>
+
         {this.state.allPlayers && (
           <AllPlayers AllPlayers={this.state.allPlayers} />
         )}
-
-        {this.state.teamOne.length > 0 && (<Teams teamOne={this.state.teamOne} teamTwo={this.state.teamTwo} />)}
-        <button onClick={this.handleCreateTeams}>Create Teams</button>
       </div>
     );
   }

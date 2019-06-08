@@ -1,8 +1,89 @@
 .App {
   text-align: center;
+  background-color: #282828;
 }
 
-.App-logo {
+#create-teams {
+  margin-top: 20px;
+}
+
+.logo {
+  font: 84px 'Arial Narrow', sans-serif;/* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
+  color: #FDFDFF;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+  margin: .25em 0;
+}
+
+
+/* stuff for both words */
+.logo span {
+  position: relative;
+}
+.logo span:before,
+.logo span:after {
+  content: '';
+  position: absolute;
+  border-width: 32px;/* makes a nice, big 64px square */
+  border-style: solid;
+  border-color: transparent;
+  height: 0;
+  z-index: 10;
+}
+
+/* stuff for 1st word */
+.logo .word1 {
+  color: #2292A4;
+  margin-right: -38px;
+  transform: rotateY(180deg);/* using Prefix free */
+  display: inline-block;/* required for transform */
+  z-index: 10;/* stack 1st word on top */
+}
+.logo .word1:before {
+  right: -4px;/* would be left, but we flipped the word */
+  top: -9px;
+  border-top-color: #282828;/* match background color */
+  border-right-color: #282828;/* would be left, but we flipped the word */
+}
+.logo .word1:after {
+  left: 3px;/* would be right, but we flipped the word */
+  bottom: -15px;
+  border-bottom-color: #282828;
+  border-left-color: #282828;/* would be right, but we flipped the word */
+}
+
+/* stuff for 2nd word */
+.logo .word2 {
+  z-index: 0;/* stack 2nd word below */
+}
+.logo .word2:before {
+  left: -4px;
+  top: -6px;
+  border-top-color: #282828;
+  border-left-color: #282828;
+}
+.logo .word2:after {
+  right: -4px;  
+  bottom: 4px;
+  border-bottom-color: #282828;
+  border-right-color: #282828;
+}
+
+body{
+  background-color: #282828;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
@@ -30,4 +111,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
