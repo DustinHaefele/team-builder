@@ -78,7 +78,9 @@ export default class App extends React.Component {
 
   render() {
     return (
+
       <div className="App">
+        <h1>Create Random Teams</h1>
         <PlayerForm
           allPlayers={this.state.allPlayers}
           handleAddPlayer={this.handleAddPlayer}
@@ -87,7 +89,7 @@ export default class App extends React.Component {
           <AllPlayers AllPlayers={this.state.allPlayers} />
         )}
 
-        <Teams teamOne={this.state.teamOne} teamTwo={this.state.teamTwo} />
+        {this.state.teamOne.length > 0 && (<Teams teamOne={this.state.teamOne} teamTwo={this.state.teamTwo} />)}
         <button onClick={this.handleCreateTeams}>Create Teams</button>
       </div>
     );

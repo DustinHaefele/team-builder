@@ -6,13 +6,13 @@ export default function Teams(props) {
   const teamTwo = props.teamTwo.map((play,i) => <li key={i}>{play}</li>);
   return (
     <div className="row">
-      <div className="column">
+      <div className="column teams">
         <h3>Team One</h3>
-        <ul>{teamOne}</ul>
+        <ul className='team-list'>{teamOne}</ul>
       </div>
-      <div className="column">
+      <div className="column teams">
         <h3>Team Two</h3>
-        <ul>{teamTwo}</ul>
+        <ul className='team-list'>{teamTwo}</ul>
       </div>
     </div>
   );
